@@ -15,3 +15,30 @@ License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 if ( ! defined( 'ABSPATH') ) {
     exit;
 }
+
+// Display the settings page
+function arcustomlogin_display_settings_page() {
+
+    // Check if user is allowed access
+    if ( ! current_user_can( 'manage_options' ) ) return;
+
+    ?>
+
+    <div class="wrap">
+        <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+        <form action="options.php" method="post">
+            <?php
+            // Output security fields
+            settings_fields( 'arcustomlogin_options' );
+
+            // Output settings sections
+            do_settings_sections( 'arcustomlogin' );
+
+            // Submit button
+            submit_button();
+            ?>
+        </form>
+    </div>
+
+    <?php
+}
