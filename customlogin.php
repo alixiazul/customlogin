@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  AR Custom Login
+Plugin Name:  Custom Login
 Description:  Plugin which creates a custom login page
 Plugin URI:   https://aliciarodriguezweb.com
 Author:       Alicia Rodriguez
@@ -10,3 +10,8 @@ Domain Path:  /languages
 License:      GPL v2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 */
+
+// Exit if file is called directly
+if ( ! defined( 'ABSPATH') ) {
+    exit;
+}
