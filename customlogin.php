@@ -69,8 +69,9 @@ function arcustomlogin_add_toplevel_menu() {
         'arcustomlogin',
         'arcustomlogin_display_settings_page',
         'dashicons-admin-generic',
-        null
+        null // to avoid clashes with other plugins
     );	
 }
 
-add_action( 'admin_menu', arcustomlogin_add_toplevel_menu );
+// Registration of the function with the "admin_menu" action hook
+add_action( 'admin_menu', 'arcustomlogin_add_toplevel_menu' );
