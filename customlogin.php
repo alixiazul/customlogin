@@ -48,30 +48,31 @@ function arcustomlogin_display_settings_page() {
     <?php
 }
 
-// Add top-level administrative menu
-function arcustomlogin_add_toplevel_menu() {
-    /* 
-		add_menu_page(
-			string   $page_title, 
-			string   $menu_title, 
-			string   $capability, 
-			string   $menu_slug, 
-			callable $function = '', 
-			string   $icon_url = '', 
-			int      $position = null 
-		)
-	*/
 
-    add_menu_page(
-        'Custom Login Settings',
-        'Custom Login',
-        'manage_options',
-        'arcustomlogin',
-        'arcustomlogin_display_settings_page',
-        'dashicons-admin-generic',
-        null // to avoid clashes with other plugins
-    );	
-}
+// // Add top-level administrative menu
+// function arcustomlogin_add_toplevel_menu() {
+//     /* 
+// 		add_menu_page(
+// 			string   $page_title, 
+// 			string   $menu_title, 
+// 			string   $capability, 
+// 			string   $menu_slug, 
+// 			callable $function = '', 
+// 			string   $icon_url = '', 
+// 			int      $position = null 
+// 		)
+// 	*/
 
-// Registration of the function with the "admin_menu" action hook
-add_action( 'admin_menu', 'arcustomlogin_add_toplevel_menu' );
+//     add_menu_page(
+//         'Custom Login Settings',
+//         'Custom Login',
+//         'manage_options',
+//         'arcustomlogin',
+//         'arcustomlogin_display_settings_page',
+//         'dashicons-admin-generic',
+//         null // to avoid clashes with other plugins
+//     );	
+// }
+
+// // Registration of the function with the "admin_menu" action hook
+// add_action( 'admin_menu', 'arcustomlogin_add_toplevel_menu' );
