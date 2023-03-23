@@ -21,7 +21,7 @@ function arcustomlogin_display_settings_page() {
         <form action="options.php" method="post">
             <?php
             // Output required security fields
-            // arcustomlogin_options is the name of the settings group that it's going to be displayed.
+            // arcustomlogin_options is the name of the plugin settings group that it's going to be displayed.
             settings_fields( 'arcustomlogin_options' );
 
             // Output the MARKUP (html) that displays the plugins' settings sections

@@ -23,7 +23,7 @@ function arcustomlogin_add_sublevel_menu() {
         'Custom Login Settings',
         'Custom Login',
         'manage_options',
-        'arcustomlogin',
+        'arcustomlogin', // menu slug
         'arcustomlogin_display_settings_page'
     );
 }
@@ -49,7 +49,7 @@ add_action( 'admin_menu', 'arcustomlogin_add_sublevel_menu' );
 //         'Custom Login Settings',
 //         'Custom Login',
 //         'manage_options',
-//         'arcustomlogin',
+//         'arcustomlogin', // menu slug
 //         'arcustomlogin_display_settings_page',
 //         'dashicons-admin-generic',
 //         null // to avoid clashes with other plugins
