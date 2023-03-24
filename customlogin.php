@@ -70,6 +70,88 @@ function myplugin_register_settings() {
         'arcustomlogin' // Page where this section is displayed. Should match the menu slug specified in "add_submenu_page" function
     );
 
+    /*
+
+	add_settings_field(
+    	string   $id,
+		string   $title,
+		callable $callback,
+		string   $page,
+		string   $section = 'default',
+		array    $args = []
+	);
+
+	*/
+
+    // Custom URL field - text
+    add_settings_field(
+        'custom_url',
+        'Custom URL',
+        'arcustomlogin_validation_field_text',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo' ]
+    );
+
+    // Custom title field - text
+    add_settings_field(
+        'custom_title',
+        'Custom Title',
+        'arcustomlogin_validation_field_text',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_title', 'label' => 'Custom title attribute for the login logo' ]
+    );
+
+    // Custom style field - radio
+    add_settings_field(
+        'custom_style',
+        'Custom Style',
+        'arcustomlogin_validation_field_radio',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_style', 'label' => 'Custom CSS for the login screen' ]
+    );
+
+    // Custom message field - textarea
+    add_settings_field(
+        'custom_message',
+        'Custom Message',
+        'arcustomlogin_validation_field_textarea',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_message', 'label' => 'Custom text and/or markup for the login screen' ]
+    );
+
+    // Custom footer field - text
+    add_settings_field(
+        'custom_footer',
+        'Custom Footer',
+        'arcustomlogin_validation_field_text',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_footer', 'label' => 'Custom footer text' ]
+    );
+
+    // Custom toolbar - checkbox
+    add_settings_field(
+        'custom_toolbar',
+        'Custom Toolbar',
+        'arcustomlogin_validation_field_checkbox',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_toolbar', 'label' => 'Remove new post and comment links from the toolbar' ]
+    );
+
+    // Custom scheme - select
+    add_settings_field(
+        'custom_scheme',
+        'Custom Scheme',
+        'arcustomlogin_validation_field_select',
+        'arcustomlogin',
+        'arcustomlogin_section_login',
+        [ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ]
+    );
 }
 
 // Admin_init hook only fires in the admin area --> perfect to register plugin settings
