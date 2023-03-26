@@ -20,7 +20,7 @@ function arcustomlogin_callback_section_admin() {
     echo '<p>These settings enable you to customize the WP Admin Area.</p>';
 }
 
-// Call back: field text
+// Call back: text field
 function arcustomlogin_callback_field_text() {
     echo 'This will be a text field';
 }

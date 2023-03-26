@@ -25,3 +25,18 @@ if ( is_admin() ) {
     require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
     require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 }
+
+// Default plugin options
+function arcustomlogin_default_options() {
+
+    // These default values are used by the plugin until the user makes changes via the plugin settings page
+    return array(
+        'custom_url'        => 'https://wordpress.org',
+        'custom_title'      => 'Powered by WordPress',
+        'custom_style'      => 'disable',
+        'custom_message'    => '<p class="custom-message">My custom message</p>',
+        'custom_footer'     => 'Special message for users',
+        'custom_toolbar'    => false,
+        'custom_scheme'     => 'default'
+    );
+}
