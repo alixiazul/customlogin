@@ -21,8 +21,30 @@ function arcustomlogin_callback_section_admin() {
 }
 
 // Call back: text field
-function arcustomlogin_callback_field_text() {
-    echo 'This will be a text field';
+function arcustomlogin_callback_field_text( $args ) {
+
+    // 1: Defining variables
+
+    // Options API
+
+    // Getting the plugin options from the database. 
+    // 1st argument: The name of the option itself. We use this name when retrieving the option from the database. It is defined in the "register_setting", 
+    // as the 2nd parameter
+    // 2nd argument: default options to use in case the options are not found in the database
+    $options = get_option( 'arcustomlogin_options', arcustomlogin_default_options() );
+
+    // The arguments should match the ones set in the settings-register.php for each setting field
+    $id     = isset($args['id'])    ? $args['id']    : '';
+    $label  = isset($args['label']) ? $args['label'] : ''; 
+
+    // Get the value for the text field that we are displaying
+    $value  = isset($options[$id])  ? sanitize_text_field( $options[$id] ) : '';
+
+    // ------------------------------------------------------------------
+
+    // 2: Output the field markup
+    echo '<input id="arcustomlogin_option_'. $id .'" name="arcustomlogin_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+    echo '<label for="arcustomlogin_options_'. $id .'">'. $label .'</label>';
 }
 
 // Call back: radio field
