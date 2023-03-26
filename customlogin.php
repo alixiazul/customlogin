@@ -85,72 +85,79 @@ function myplugin_register_settings() {
 
     // Custom URL field - text
     add_settings_field(
-        'custom_url',
+        'custom_url', // setting value in the database
         'Custom URL',
-        'arcustomlogin_validation_field_text',
+        'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo' ]
+        [ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom title field - text
     add_settings_field(
-        'custom_title',
+        'custom_title', // setting value in the database
         'Custom Title',
-        'arcustomlogin_validation_field_text',
+        'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_title', 'label' => 'Custom title attribute for the login logo' ]
+        [ 'id' => 'custom_title', 'label' => 'Custom title attribute for the login logo' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom style field - radio
     add_settings_field(
-        'custom_style',
+        'custom_style', // setting value in the database
         'Custom Style',
-        'arcustomlogin_validation_field_radio',
+        'arcustomlogin_callback_field_radio', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_style', 'label' => 'Custom CSS for the login screen' ]
+        [ 'id' => 'custom_style', 'label' => 'Custom CSS for the login screen' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom message field - textarea
     add_settings_field(
-        'custom_message',
+        'custom_message', // setting value in the database
         'Custom Message',
-        'arcustomlogin_validation_field_textarea',
+        'arcustomlogin_callback_field_textarea', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_message', 'label' => 'Custom text and/or markup for the login screen' ]
+        [ 'id' => 'custom_message', 'label' => 'Custom text and/or markup for the login screen' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom footer field - text
     add_settings_field(
-        'custom_footer',
+        'custom_footer', // setting value in the database
         'Custom Footer',
-        'arcustomlogin_validation_field_text',
+        'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_footer', 'label' => 'Custom footer text' ]
+        [ 'id' => 'custom_footer', 'label' => 'Custom footer text' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom toolbar - checkbox
     add_settings_field(
-        'custom_toolbar',
+        'custom_toolbar', // setting value in the database
         'Custom Toolbar',
-        'arcustomlogin_validation_field_checkbox',
+        'arcustomlogin_callback_field_checkbox', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_toolbar', 'label' => 'Remove new post and comment links from the toolbar' ]
+        [ 'id' => 'custom_toolbar', 'label' => 'Remove new post and comment links from the toolbar' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 
     // Custom scheme - select
     add_settings_field(
-        'custom_scheme',
+        'custom_scheme', // setting value in the database
         'Custom Scheme',
-        'arcustomlogin_validation_field_select',
+        'arcustomlogin_callback_field_select', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ]
+        [ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ] // arguments for the call back function (the one that outputs the markup)
+        // adding as arguments the field id and the label to the call back function
     );
 }
 
