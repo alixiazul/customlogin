@@ -114,7 +114,7 @@ function myplugin_register_settings() {
         'Custom Footer',
         'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
-        'arcustomlogin_section_login',
+        'arcustomlogin_section_admin',
         [ 'id' => 'custom_footer', 'label' => 'Custom footer text' ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
@@ -125,7 +125,7 @@ function myplugin_register_settings() {
         'Custom Toolbar',
         'arcustomlogin_callback_field_checkbox', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
-        'arcustomlogin_section_login',
+        'arcustomlogin_section_admin',
         [ 'id' => 'custom_toolbar', 'label' => 'Remove new post and comment links from the toolbar' ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
@@ -136,7 +136,7 @@ function myplugin_register_settings() {
         'Custom Scheme',
         'arcustomlogin_callback_field_select', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
-        'arcustomlogin_section_login',
+        'arcustomlogin_section_admin',
         [ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
