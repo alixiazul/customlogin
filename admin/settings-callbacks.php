@@ -138,11 +138,61 @@ function arcustomlogin_callback_field_checkbox( $args) {
 
     $checked = isset($options[$id]) ? checked( $options[$id], 1, false ) : ''; // Not echoing but returning
         
+    // ------------------------------------------------------------------
+
+    // 2: Output the text area markup
     echo '<input id="arcustomlogin_options_'. $id .'" name="arcustomlogin_options['. $id .']" type="checkbox" value="1" ' . $checked . '>';
     echo '<label for="arcustomlogin_options_'. $id .'">'. $label .'</label><br/>';      
 }
 
 // Call back: select field
-function arcustomlogin_callback_field_select() {
-    echo 'This will be a select field';
+function arcustomlogin_callback_field_select( $args ) {
+
+    // 1: Defining variables
+
+    // Options API
+
+    // Getting the plugin options from the database. 
+    // 1st argument: The name of the option itself. We use this name when retrieving the option from the database. It is defined in the "register_setting", 
+    // as the 2nd parameter
+    // 2nd argument: default options to use in case the options are not found in the database
+    $options = get_option( 'arcustomlogin_options', arcustomlogin_default_options() );
+
+    // The arguments should match the ones set in the settings-register.php for each setting field
+    $id     = isset($args['id'])    ? $args['id']    : '';
+    $label  = isset($args['label']) ? $args['label'] : '';
+
+    // Get the value for the radio field that we are displaying
+    $selected_option = isset($options[$id]) ? sanitize_text_field( $options[$id] ) : '';
+
+    $select_options = array(
+        // value    => label
+        'default'   => 'Default',
+        'light'     => 'Light',
+        'blue'      => 'Blue',
+        'coffee'    => 'Coffee',
+        'ectoplasm' => 'Ectoplasm',
+        'midnight'  => 'Midnight',
+        'ocean'     => 'Ocean',
+        'sunrise'   => 'Sunrise'
+    );
+
+    // ------------------------------------------------------------------
+
+    // 2: Output the text area markup
+    echo '<select id="arcustomlogin_options_'. $id .'" name="arcustomlogin_options['. $id .']">';
+
+    foreach( $select_options as $value => $option ) {
+        // selected ( $selected, $current, $echo)
+        // $selected = one of the values to compare
+        // $current = the other value to compare (default = true)
+        // $echo    = whether to echo the result or just return the string (default = true)    
+        
+        $selected = selected( $selected_option === $value, true, false ); // Not echoing but returning
+        
+        echo '<option value="' . $value . '" ' . $selected . '>' . $option . '</option>';
+    }
+
+    echo '</select><br/>';
+    echo '<label for="arcustomlogin_options_'. $id .'">'. $label .'</label><br/>';  
 }
