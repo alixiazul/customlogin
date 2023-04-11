@@ -27,6 +27,10 @@ if ( is_admin() ) {
     require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
 }
 
+// Include dependencies: admin and public
+require_once plugin_dir_path( __FILE__ ) . 'admin/includes/core-functions.php';
+
+
 // Default plugin options
 function arcustomlogin_default_options() {
 
