@@ -33,46 +33,49 @@ function arcustomlogin_custom_login_title( $title ) {
 
 add_filter( 'login_headertext', 'arcustomlogin_custom_login_title' );
 
-// // Custom login styles
-// function arcustomlogin_custom_login_styles() {
+// Custom login styles
+ function arcustomlogin_custom_login_styles() {
    
-//     $options = get_option( 'arcustomlogin_options', arcustomlogin_default_options() );
+    $options = get_option( 'arcustomlogin_options', arcustomlogin_default_options() );
 
-//     $styles = false;
+    $styles = false;
 
-//     if ( isset( $options['custom_style'] ) && ! empty( $options['custom_style'] ) ) {
-//         $styles = sanitize_text_field( $options['custom_style'] );
-//     }
+    if ( isset( $options['custom_style'] ) && ! empty( $options['custom_style'] ) ) {
+        $styles = sanitize_text_field( $options['custom_style'] );
+    }
 
-//     if ( 'enable' === $styles ) {  // In a Yoda condition, if you accidentally use a single = instead of ===, it will result in a syntax error, since you cannot assign a value to a string literal
-// 		/*
+    if ( 'enable' === $styles ) {  // In a Yoda condition, if you accidentally use a single = instead of ===, it will result in a syntax error, since you cannot assign a value to a string literal
+		/*
 		
-// 		wp_enqueue_style( 
-// 			string           $handle, 
-// 			string           $src = '', 
-// 			array            $deps = array(), 
-// 			string|bool|null $ver = false, 
-// 			string           $media = 'all' 
-// 		)
+		wp_enqueue_style( 
+			string           $handle --> ID for the stylesheet. It is a great idea to include the plugin's name or slug as the handle. If you inspect the login page code, you can see this id in the link to the stylesheet as <link rel="stylesheet" id="nameofplugin-css" ...
+			string           $src = '', --> url of the stylesheet. Use "plugin_dir_url" to get to the url of the directory.
+			array            $deps = array(), --> any dependencies required by the stylesheet. In case we want the stylesheet is loaded AFTER a specific stylesheet "name". Because it is an array, we can include multiple dependencies.
+			string|bool|null $ver = false, --> determines the query string that's appended to the stylesheet url. Null ==> disabling the data query. Example: https://localhost/web/wp-content/plugins/arcustomlogin/public/css/arcustomlogin.css?ver=3 --> query is ver=3. Very USEFUL for version control. 
+			string           $media = 'all' --> specifies the media attribute of the stylesheet link. 
+		)
 		
-// 		wp_enqueue_script( 
-// 			string           $handle, 
-// 			string           $src = '', 
-// 			array            $deps = array(), 
-// 			string|bool|null $ver = false, 
-// 			bool             $in_footer = false 
-// 		)
+		wp_enqueue_script( 
+			string           $handle, 
+			string           $src = '', 
+			array            $deps = array(), 
+			string|bool|null $ver = false, 
+			bool             $in_footer = false --> specifies the localtion of the js file. True= WP will include the js file via the wp_footer hook
+		)
 		
-// 		*/
+		*/
 
-//         wp_enqueue_style( 'arcustomlogin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/customlogin.css', array(), null, 'screen' );
+		// Enqueue the css file, styles
+        wp_enqueue_style( 'arcustomlogin', plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'public/css/customlogin.css', array(), null, 'screen' );
 
-//         //wp_enqueue_script( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/myplugin-login.js', array(), null, true );
+		// Enqueue the javascript
+        wp_enqueue_script( 'arcustomlogin', plugin_dir_url(  dirname( dirname( __FILE__ ) ) ) . 'public/js/customlogin.js', array(), null, true );
 		
-//     }
-// }
+    }
+}
 
-// add_action( 'login_enqueue_scripts', ' arcustomlogin_custom_login_styles', 10 );
+// Hook: login_enqueue_scripts --> it only fires on the login page, perfect for a custom css and js files
+add_action( 'login_enqueue_scripts', 'arcustomlogin_custom_login_styles', 10 );
 
 
 // custom login message
