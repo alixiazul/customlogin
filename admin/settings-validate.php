@@ -27,8 +27,8 @@ function arcustomlogin_validate_options( $input ) {
 
     // Custom style -------------------------------------------
     $radio_options = array(
-        'enable'    => 'Enable custom styles',
-        'disable'   => 'Disable custom styles'
+        'enable'    => esc_html__( 'Enable custom styles', 'customlogin' ),
+        'disable'   => esc_html__( 'Disable custom styles', 'customlogin' )
     );
 
     // 1 - Checking if the option exists or is set
@@ -66,14 +66,14 @@ function arcustomlogin_validate_options( $input ) {
     // Custom scheme -------------------------------------------
 
     $select_options = array(
-        'default'   => 'Default',
-        'light'     => 'Light',
-        'blue'      => 'Blue',
-        'coffee'    => 'Coffee',
-        'ectoplasm' => 'Ectoplasm',
-        'midnight'  => 'Midnight',
-        'ocean'     => 'Ocean',
-        'sunrise'   => 'Sunrise'
+        'default'   => esc_html__( 'Default', 'customlogin' ),
+        'light'     => esc_html__( 'Light', 'customlogin' ),
+        'blue'      => esc_html__( 'Blue', 'customlogin' ),
+        'coffee'    => esc_html__( 'Coffee', 'customlogin' ),
+        'ectoplasm' => esc_html__( 'Ectoplasm', 'customlogin' ),
+        'midnight'  => esc_html__( 'Midnight', 'customlogin' ),
+        'ocean'     => esc_html__( 'Ocean', 'customlogin' ),
+        'sunrise'   => esc_html__( 'Sunrise', 'customlogin' )
     );
 
     // 1 - Checking if the option exists or is set

@@ -5,12 +5,14 @@ Description:  Plugin which creates a custom login page
 Plugin URI:   https://aliciarodriguezweb.com
 Author:       Alicia Rodriguez
 Version:      1.0
-Text Domain:  arcustomlogin
+Text Domain:  customlogin
 Domain Path:  /languages
 License:      GPL v2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 */
 
+// text domain --> needed for internationalisation. Must match the plugin folder and main plugin file.
+// domain path --> needed for internationalisation. Must much the languages folder
 // Exit if file is called directly
 if ( ! defined( 'ABSPATH') ) {
     exit;
@@ -37,11 +39,30 @@ function arcustomlogin_default_options() {
     // These default values are used by the plugin until the user makes changes via the plugin settings page
     return array(
         'custom_url'        => 'https://wordpress.org',
-        'custom_title'      => 'Powered by WordPress',
+        'custom_title'      => esc_html__( 'Powered by WordPress', 'customlogin' ), // Using the underscore function. These are strings that need to be translated.
         'custom_style'      => 'disable',
-        'custom_message'    => '<p class="custom-message">My custom message</p>',
-        'custom_footer'     => 'Special message for users',
+        'custom_message'    => esc_html__( '<p class="custom-message">My custom message</p>', 'customlogin' ),
+        'custom_footer'     => esc_html__( 'Special message for users' ),
         'custom_toolbar'    => false,
         'custom_scheme'     => 'default'
     );
+
+    // __()     --> double underscore function
+    // __e()    --> echoes the string instead of returning it
+    // __x()    --> provides an extra parameter that can be used to specify context
+
+    // Safer way to localise strings. They provide built-in sanitisation for the translated strings, which helps keep translations correct and stop translators from
+    // running malicious code.
+    // esc_html__()
+    // esc_html_e()
+    // esc_html_x()
 }
+
+// Load text domain --> for internationlisation
+function arcustomlogin_load_textdomain() {
+
+    // The plugin text domain should match up with the "text domain" especified in this file header
+    load_plugin_textdomain( 'customlogin', false, plugin_dir_path( __FILE__ ) . '/languages' );
+}
+
+add_action( 'plugins_loaded', 'arcustomlogin_load_textdomain' );

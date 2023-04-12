@@ -38,7 +38,7 @@ function myplugin_register_settings() {
     // First section to show the login options
     add_settings_section( 
         'arcustomlogin_section_login', 
-        'Customise Login Page', 
+        esc_html__( 'Customise Login Page', 'customlogin' ), 
         'arcustomlogin_callback_section_login',
         'arcustomlogin' // Page where this section is displayed. Should match the menu slug specified in "add_submenu_page" function
     );
@@ -46,7 +46,7 @@ function myplugin_register_settings() {
     // Second section to show the admin area of the plugin
     add_settings_section( 
         'arcustomlogin_section_admin', 
-        'Customise Admin Area', 
+        esc_html__( 'Customise Admin Area', 'customlogin' ), 
         'arcustomlogin_callback_section_admin',
         'arcustomlogin' // Page where this section is displayed. Should match the menu slug specified in "add_submenu_page" function
     );
@@ -67,77 +67,77 @@ function myplugin_register_settings() {
     // Custom URL field - text
     add_settings_field(
         'custom_url', // setting value in the database
-        'Custom URL',
+        esc_html__( 'Custom URL', 'customlogin' ),
         'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_url', 'label' => 'Custom URL for the login logo' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_url', 'label' => esc_html__( 'Custom URL for the login logo', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom title field - text
     add_settings_field(
         'custom_title', // setting value in the database
-        'Custom Title',
+        esc_html__( 'Custom Title', 'customlogin' ),
         'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_title', 'label' => 'Custom title attribute for the login logo' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_title', 'label' => esc_html__( 'Custom title attribute for the login logo', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom style field - radio
     add_settings_field(
         'custom_style', // setting value in the database
-        'Custom Style',
+        esc_html__( 'Custom Style', 'customlogin' ),
         'arcustomlogin_callback_field_radio', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_style', 'label' => 'Custom CSS for the login screen' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_style', 'label' => esc_html__( 'Custom CSS for the login screen', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom message field - textarea
     add_settings_field(
         'custom_message', // setting value in the database
-        'Custom Message',
+        esc_html__( 'Custom Message', 'customlogin' ),
         'arcustomlogin_callback_field_textarea', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_login',
-        [ 'id' => 'custom_message', 'label' => 'Custom text and/or markup for the login screen' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_message', 'label' => esc_html__( 'Custom text and/or markup for the login screen', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom footer field - text
     add_settings_field(
         'custom_footer', // setting value in the database
-        'Custom Footer',
+        esc_html__( 'Custom Footer', 'customlogin' ),
         'arcustomlogin_callback_field_text', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_admin',
-        [ 'id' => 'custom_footer', 'label' => 'Custom footer text' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_footer', 'label' => esc_html__( 'Custom footer text', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom toolbar - checkbox
     add_settings_field(
         'custom_toolbar', // setting value in the database
-        'Custom Toolbar',
+        esc_html__( 'Custom Toolbar', 'customlogin' ),
         'arcustomlogin_callback_field_checkbox', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_admin',
-        [ 'id' => 'custom_toolbar', 'label' => 'Remove new post and comment links from the toolbar' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_toolbar', 'label' => esc_html__( 'Remove new post and comment links from the toolbar', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 
     // Custom scheme - select
     add_settings_field(
         'custom_scheme', // setting value in the database
-        'Custom Scheme',
+        esc_html__( 'Custom Scheme', 'customlogin' ),
         'arcustomlogin_callback_field_select', // function that outputs the markup required to display this field/setting
         'arcustomlogin',
         'arcustomlogin_section_admin',
-        [ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ] // arguments for the call back function (the one that outputs the markup)
+        [ 'id' => 'custom_scheme', 'label' => esc_html__( 'Default color scheme for new users', 'customlogin' ) ] // arguments for the call back function (the one that outputs the markup)
         // adding as arguments the field id and the label to the call back function
     );
 }
