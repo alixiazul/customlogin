@@ -66,3 +66,21 @@ function arcustomlogin_load_textdomain() {
 }
 
 add_action( 'plugins_loaded', 'arcustomlogin_load_textdomain' );
+
+
+// Technique to uninstall the plugin. Although the uninstall.php has been used instead.
+
+// // Remove options on uninstall
+// function arcustomlogin_on_uninstall() {
+
+// 	if ( ! current_user_can( 'activate_plugins' ) ) return;
+
+//     // This removes the options for the plugin. You can check if the options are or not in here:
+//     // 1. Go to PHP My Admin
+//     // 2. Choose the database (aliciarodriguez)
+//     // 3. Choose the options table (ar_options)
+//     // 4. Make a search where "option_name" LIKE "nameoftheplugin_options" (arcustomlogin_options)
+// 	delete_option( 'arcustomlogin_options' );   
+
+// }
+// register_uninstall_hook( __FILE__, 'arcustomlogin_on_uninstall' );
